@@ -267,5 +267,21 @@
 
 
 
+  "attendee name" : "اسم الحاضر",
+  "choose attendee" : "أختار اسم الحاضر",
+  "conference role" : "الدور فى المؤتمر",
+  "choose role" : "أختار الدور",
+  "choose conference" : "أختار المؤتمر",
+
+
+
+  "foreigner attendance": "الحاضرين الأجانب",
+
+  "Add attendance": "إضافة حاضر أجنبى",
+  "Edit attendance": "تعديل حاضر أجنبى",
+  "Delete attendance": "حذف حاضر أجنبى",
+  "Delete attendance Confirmation": "هل انت متاكد من حذف هذه الحاضر أجنبى",
+
+
   "End":"النهاية"
 }
