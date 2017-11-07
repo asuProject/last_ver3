@@ -83,4 +83,8 @@ Route::post('get_cities', 'ForeignerAttendeeController@get_cities');
 Route::resource('attendance/foreign/attendance', 'ForeignAttendanceController', ['names' => 'attendance.foreign.attendance', 'except' => ['show', 'edit']]);
 Route::get('attendance/foreign/attendance/{attendee}/{conference}', 'ForeignAttendanceController@show')->name('attendance.foreign.attendance.show');
 Route::get('attendance/foreign/attendance/{attendee}/{conference}/edit', 'ForeignAttendanceController@edit')->name('attendance.foreign.attendance.edit');
+
+/*added by michael to multi foreign attendee*/
+Route::get('ForeignAttendance/addinput', 'ForeignAttendanceController@addinput')->name('ForeignAttendance.addinput');
+
 /**********************/

@@ -16,6 +16,23 @@
 			</div>
 		</div>
 	@endif
+	<script type="text/javascript">
+$(function() {
+
+    var addDiv = $('#addinput');
+    var i = $('#addinput p').size() + 1;
+	var url = '{!! route("ForeignAttendance.addinput") !!}';
+
+    $('#addNew').click(function(e){
+       e.preventDefault();
+              $.post(url,{'_token': $('meta[name=csrf-token]').attr('content'), 'i': i },function(data){
+                $(addDiv).append(data);
+                i++;
+                return false;
+        });
+    });
+    });
+</script>
 
 
 <SCRIPT LANGUAGE="JavaScript">
@@ -102,6 +119,17 @@ function get_cities(country_id){
 			</select>
 			</div>
 		</div>
+
+  <div id="addinput" class="row"><p>
+  <center>
+  	<button type="button" class="btn btn-default btn-lg">
+      <a href="#" class="button radius" id="addNew"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> {{ __('add input') }}</a>
+    </button>
+	</center>
+</p>
+  </div>
+
+
 
 		<button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
 	</form>

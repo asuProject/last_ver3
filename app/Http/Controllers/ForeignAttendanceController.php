@@ -152,4 +152,67 @@ class ForeignAttendanceController extends Controller
 			return redirect()->route('attendance.foreign.attendance.index')->with('alert-class', 'alert-success')->with('message', 'Done!');
 		}
     }
+
+        public function addinput(){
+
+        $i = $this->input->post('i');
+
+        echo '
+        <div class="form-group row">
+            <label class="col-md-4 control-label">'. __("conference name") .'</label>
+            <div class="col-md-8">
+                <select name="conference_id['.$i.']" required>
+                <option value="" disabled selected>'. __("choose conference") .'</option>';
+                foreach($conferences as $conference):
+                   echo ' <option value="'.$conference->id.'">'.$conference->name.'</option>';
+                endforeach;
+            echo '</select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-4 control-label">'. __("attendee name") .'</label>
+            <div class="col-md-8">
+                <select name="attendee_id['.$i.']" required>
+                <option value="" disabled selected>'. __("choose attendee") .'</option>';
+                foreach($attendees as $attendee):
+                   echo ' <option value="'.$attendee->id.'">'.$attendee->name.'</option>';
+                endforeach;
+            echo '</select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-4 control-label"> '.__("country") .'</label>
+            <div class="col-md-3">
+            <select name="country_id['.$i.']" required  onchange="get_cities(this.value)"">
+                <option value="" disabled selected>'. __("choose country") .'</option>';
+                foreach($countries as $country):
+                    echo '<option value="'.$country->id.'">'.$country->name.'</option>';
+                endforeach;
+            echo '</select>
+            </div>
+            <label class="col-md-2 control-label">'. __("city") .'</label>
+            <div class="col-md-3">
+            <select name="city_id['.$i.']" required id="city">
+                <option value="">'. __("Please select a country") .'</option>
+            </select>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-4 control-label">'. __("conference role") .'</label>
+            <div class="col-md-8">
+            <select id="role_id" name="role_id['.$i.']" multiple>
+                <option value="" disabled>'. __("choose role") .'</option>';
+                foreach($roles as $role):
+                    echo '<option value="{{$role->id}}">'.$role->role.'</option>';
+                endforeach;
+            echo '</select>
+            </div>
+        </div>';
+    
+        }
+
+
 }
